@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		section {
+			width: 100%;
+			height: 100vh;
+		}
+		section .leftBox {
+			width: 50%;
+			height: 100%;
+			float: left;
+			padding: 50px;
+			box-sizing: border-box;
+		}
+		section .leftBox .content {
+			color: white;
+			background: black;
+			padding: 40px;
+			transition: .5s;
+		}
+		section .leftBox .content:hover {
+			background: blueviolet;
+		}
+		section .leftBox .content h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 50px;
+			text-transform: uppercase;
+		}
+		section .leftBox .content p {
+			margin: 10px 0 0;
+			padding: 0;
+		}
+		section .events {
+			position: relative;
+			width: 50%;
+			height: 100%;
+			background: black;
+			float: right;
+			box-sizing: border-box;
+		}
+		section .events ul {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			margin: 0;
+			padding: 40px;
+			box-sizing: border-box;
+		}
+		section .events ul li {
+			list-style: none;
+			background: white;
+			box-sizing: border-box;
+			height: 200px;
+			margin: 15px 0;
+		}
+		section .events ul li .time {
+			position: relative;
+			padding: 20px;
+			background: black;
+			box-sizing: border-box;
+			width: 30%;
+			height: 100%;
+			float: left;
+			text-align: center;
+			transition: .5s;
+		}
+		section .events ul li:hover .time {
+			background: #e91e63;
+		}
+		section .events ul li .time h2 {
+			position: absolute;
+			margin: 0;
+			padding: 0;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-size: 60px;
+			line-height: 30px;
+		}
+		section .events ul li .time h2 span {
+			font-size: 30px;
+		}
+		section .events ul li .details {
+			padding: 20px;
+			background: white;
+			box-sizing: border-box;
+			width: 70%;
+			height: 100%;
+			float: left;
+		}
+		section .events ul li .details h3 {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			font-size: 22px;
+		}
+        section .events ul li .details p {
+			position: relative;
+			margin: 10px 0 0;
+			padding: 0;
+			font-size: 16px;
+		}
+		section .events ul li .details button {
+			display: inline-block;
+			text-decoration: none;
+			padding: 10px 15px;
+			border: 1.5px solid black;
+			margin-top: 8px;
+			font-size: 18px;
+			transition: .5s;
+			cursor: pointer;
+		}
+        section .events ul li .details button:hover {
+			background: #e91e63;
+			color: #fff;
+			border-color: #e91e63;
+		}
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: black;
+			background-color: black;
+		}
+        .modal-content {
+			background-color: white;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid grey;
+			width: 80%;
+		}
+        .close {
+			color: grey;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+        .close:hover,
+		.close:focus {
+			color: black;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<div class="leftBox">
+			<div class="content">
+				<h1>
+					Events and Shows
+				</h1>
+				<p>
+					Online conferences revolutionize knowledge sharing and networking by enabling global participation without travel constraints. Attendees can engage in keynote speeches, workshops, and networking from home, fostering inclusivity and accessibility. With easy access to resources and interactions with speakers and peers, these virtual events create a dynamic experience that transcends physical boundaries.
+
+				</p>
+			</div>
+		</div>
+		<div class="events">
+			<ul>
+				<li>
+					<div class="time">
+						<h2>
+							15 <br><span>June</span>
+						</h2>
+					</div>
+					<div class="details">
+						<h3>
+							Where is the event happening?
+						</h3>
+						<p>
+							Join us for an insightful online AI conference on [June 15th], where experts will discuss the latest advancements in machine learning. 
+                             stay updated and tuned.
+						</p>
+						<button onclick="showDetails('Join us online on June 15th at 10 AM for an AI webinar focusing on the intersection of AI and cybersecurity, addressing emerging threats and defense strategies.')">View Details</button>
+					
+					</div>
+					<div style="clear: both;"></div>
+				</li>
+				<li>
+					<div class="time">
+						<h2>
+							27 <br><span>July</span>
+						</h2>
+					</div>
+					<div class="details">
+						<h3>
+							Where is the event happening?
+						</h3>
+						<p>
+							Join us for an online ML conference on [July 27th], where experts will discuss the latest advancements in artificial intelligence. 
+                            stay updated and connected.
+						</p>
+						<button onclick="showDetails('Join us online on July 27th at 3 PM for an AI webinar exploring the applications of AI in financial markets and algorithmic trading.')">View Details</button>
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+				<li>
+					<div class="time">
+						<h2>
+							25 <br><span>August</span>
+						</h2>
+					</div>
+					<div class="details">
+						<h3>
+							Where is the event happening?
+						</h3>
+						<p>
+							Join us for an insightful online DL conference on [August 25th], where experts will discuss the deep learning trends. 
+                           stay updated and connected.
+						</p>
+						<button onclick="showDetails('Join us online on August 25th at 11 AM for an AI webinar discussing the role of AI in healthcare innovation and patient care.')">View Details</button>
+					</div>
+					<div style="clear:both;"></div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p id="modalText"></p>
+		</div>
+	</div>
+	<script>
+		function showDetails(details) {
+			document.getElementById("modalText").innerText = details;
+			document.getElementById("myModal").style.display = "block";
+		}
+		var modal = document.getElementById("myModal");
+		var span = document.getElementsByClassName("close")[0];
+		span.onclick = function () {
+			modal.style.display = "none";
+		}
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</body>
+
+</html>
